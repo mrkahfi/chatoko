@@ -6,7 +6,7 @@ import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @Composable
 fun ChatokoDrawer(

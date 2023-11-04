@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.yanmii.chatoko.data.colleagueProfile
 import com.yanmii.chatoko.data.meProfile
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @Preview(widthDp = 340, name = "340 width - Me")
 @Composable
@@ -32,7 +32,7 @@ fun ProfilePreview480Other() {
 @Preview(widthDp = 340, name = "340 width - Me - Dark")
 @Composable
 fun ProfilePreview340MeDark() {
-    ChatokoTheme(isDarkTheme = true) {
+    ChatokoTheme {
         ProfileScreen(meProfile)
     }
 }
@@ -40,7 +40,7 @@ fun ProfilePreview340MeDark() {
 @Preview(widthDp = 480, name = "480 width - Me - Dark")
 @Composable
 fun ProfilePreview480MeDark() {
-    ChatokoTheme(isDarkTheme = true) {
+    ChatokoTheme {
         ProfileScreen(meProfile)
     }
 }
@@ -48,7 +48,7 @@ fun ProfilePreview480MeDark() {
 @Preview(widthDp = 480, name = "480 width - Other - Dark")
 @Composable
 fun ProfilePreview480OtherDark() {
-    ChatokoTheme(isDarkTheme = true) {
+    ChatokoTheme {
         ProfileScreen(colleagueProfile)
     }
 }

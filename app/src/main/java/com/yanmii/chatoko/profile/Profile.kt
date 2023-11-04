@@ -54,7 +54,7 @@ import com.yanmii.chatoko.components.AnimatingFabContent
 import com.yanmii.chatoko.components.baselineHeight
 import com.yanmii.chatoko.data.colleagueProfile
 import com.yanmii.chatoko.data.meProfile
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable

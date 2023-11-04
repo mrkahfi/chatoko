@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.yanmii.chatoko.R
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @Composable
 fun ChatokoAppBar(
@@ -48,15 +48,6 @@ fun ChatokoAppBar(
 @Composable
 fun ChatokoAppBarPreview() {
     ChatokoTheme {
-        ChatokoAppBar(title = { Text("Preview!") })
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview
-@Composable
-fun ChatokoAppBarPreviewDark() {
-    ChatokoTheme(isDarkTheme = true) {
         ChatokoAppBar(title = { Text("Preview!") })
     }
 }

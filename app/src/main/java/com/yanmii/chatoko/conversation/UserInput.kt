@@ -312,6 +312,7 @@ private fun UserInputSelector(
         val disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f)
 
         val buttonColors = ButtonDefaults.buttonColors(
+            containerColor = MaterialTheme.colorScheme.primary,
             disabledContainerColor = Color.Transparent,
             disabledContentColor = disabledContentColor
         )

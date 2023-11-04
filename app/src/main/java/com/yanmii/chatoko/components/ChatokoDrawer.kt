@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.sp
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.data.colleagueProfile
 import com.yanmii.chatoko.data.meProfile
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @Composable
 fun ChatokoDrawerContent(
@@ -192,7 +192,7 @@ fun DrawerPreview() {
 @Composable
 @Preview
 fun DrawerPreviewDark() {
-    ChatokoTheme(isDarkTheme = true) {
+    ChatokoTheme {
         Surface {
             Column {
                 ChatokoDrawerContent({}, {})

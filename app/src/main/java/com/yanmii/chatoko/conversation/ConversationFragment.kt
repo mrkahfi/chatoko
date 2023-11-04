@@ -14,7 +14,7 @@ import androidx.navigation.findNavController
 import com.yanmii.chatoko.MainViewModel
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.data.exampleUiState
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 class ConversationFragment : Fragment() {
 

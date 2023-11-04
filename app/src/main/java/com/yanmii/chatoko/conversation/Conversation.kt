@@ -1,4 +1,6 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
+@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class,
+    ExperimentalMaterial3Api::class
+)
 
 package com.yanmii.chatoko.conversation
 
@@ -70,7 +72,7 @@ import com.yanmii.chatoko.FunctionalityNotAvailablePopup
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.components.ChatokoAppBar
 import com.yanmii.chatoko.data.exampleUiState
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 import kotlinx.coroutines.launch
 
 /**

@@ -32,7 +32,7 @@ import com.yanmii.chatoko.FunctionalityNotAvailablePopup
 import com.yanmii.chatoko.MainViewModel
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.components.ChatokoAppBar
-import com.yanmii.chatoko.theme.ChatokoTheme
+import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 class ProfileFragment : Fragment() {
 
