@@ -1,7 +1,10 @@
+import java.util.Properties
 
 plugins {
+    kotlin("kapt")
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -10,13 +13,19 @@ android {
 
     defaultConfig {
         applicationId = "com.yanmii.chatoko"
-        minSdk = 21
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
+
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+
+        manifestPlaceholders["API_KEY"] = properties.getProperty("API_KEY")
     }
 
     buildTypes {
@@ -38,6 +47,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
@@ -47,6 +57,10 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+kotlin {
+    jvmToolchain(8)
 }
 
 dependencies {
@@ -76,6 +90,28 @@ dependencies {
     implementation("androidx.compose.ui:ui-util")
     implementation("androidx.compose.ui:ui-viewbinding")
     implementation("androidx.compose.ui:ui-text-google-fonts")
+
+
+    implementation("com.google.maps.android:maps-compose:4.1.1")
+
+    // Optionally, you can include the Compose utils library for Clustering,
+    // Street View metadata checks, etc.
+    implementation("com.google.maps.android:maps-compose-utils:4.1.1")
+
+    // Optionally, you can include the widgets library for ScaleBar, etc.
+    implementation("com.google.maps.android:maps-compose-widgets:4.1.1")
+    //Lifecycle
+
+    //Google Services & Maps
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+
+    //Accompanist (Permission)
+    implementation("com.google.accompanist:accompanist-permissions:0.31.3-beta")
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-compiler:2.44")
 
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 

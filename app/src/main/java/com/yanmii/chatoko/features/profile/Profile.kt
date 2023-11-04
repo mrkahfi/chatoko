@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.profile
+package com.yanmii.chatoko.features.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState

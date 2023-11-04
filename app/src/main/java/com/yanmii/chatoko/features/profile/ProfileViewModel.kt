@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.profile
+package com.yanmii.chatoko.features.profile
 
 import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Immutable

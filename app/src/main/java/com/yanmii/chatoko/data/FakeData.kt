@@ -1,15 +1,15 @@
 package com.yanmii.chatoko.data
 
 import com.yanmii.chatoko.R
-import com.yanmii.chatoko.conversation.ConversationUiState
-import com.yanmii.chatoko.conversation.Message
+import com.yanmii.chatoko.features.conversation.ConversationUiState
+import com.yanmii.chatoko.features.conversation.Message
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_CLOUDS
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_FLAMINGO
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_MELTING
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_PINK_HEART
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_POINTS
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_WORSHIP
-import com.yanmii.chatoko.profile.ProfileScreenState
+import com.yanmii.chatoko.features.profile.ProfileScreenState
 
 private val initialMessages = listOf(
     Message(

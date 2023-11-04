@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.profile
+package com.yanmii.chatoko.features.profile
 
 import android.content.Context
 import android.os.Bundle

@@ -2,7 +2,7 @@
     ExperimentalMaterial3Api::class
 )
 
-package com.yanmii.chatoko.conversation
+package com.yanmii.chatoko.features.conversation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border

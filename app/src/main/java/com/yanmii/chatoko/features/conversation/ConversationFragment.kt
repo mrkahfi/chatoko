@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.conversation
+package com.yanmii.chatoko.features.conversation
 
 import android.os.Bundle
 import android.view.LayoutInflater

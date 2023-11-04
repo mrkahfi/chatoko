@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.profile
+package com.yanmii.chatoko.features.profile
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
