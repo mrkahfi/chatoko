@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.features.profile
+package com.yanmii.chatoko.presenter.profile
 
 import android.content.Context
 import android.os.Bundle
@@ -29,7 +29,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.yanmii.chatoko.FunctionalityNotAvailablePopup
-import com.yanmii.chatoko.MainViewModel
+import com.yanmii.chatoko.presenter.conversation.DrawerViewModel
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.components.ChatokoAppBar
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
@@ -37,7 +37,7 @@ import com.yanmii.chatoko.ui.theme.ChatokoTheme
 class ProfileFragment : Fragment() {
 
     private val viewModel: ProfileViewModel by viewModels()
-    private val activityViewModel: MainViewModel by activityViewModels()
+    private val activityViewModel: DrawerViewModel by activityViewModels()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

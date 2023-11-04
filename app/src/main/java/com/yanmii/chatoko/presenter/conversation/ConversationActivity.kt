@@ -1,4 +1,4 @@
-package com.yanmii.chatoko
+package com.yanmii.chatoko.presenter.conversation
 
 import android.os.Bundle
 import androidx.activity.compose.BackHandler
@@ -18,6 +18,7 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.yanmii.chatoko.R
 import com.yanmii.chatoko.components.ChatokoDrawer
 import com.yanmii.chatoko.databinding.ContentMainBinding
 import kotlinx.coroutines.launch
@@ -25,8 +26,8 @@ import kotlinx.coroutines.launch
 /**
  * Main activity for the app.
  */
-class NavActivity : AppCompatActivity() {
-    private val viewModel: MainViewModel by viewModels()
+class ConversationActivity : AppCompatActivity() {
+    private val viewModel: DrawerViewModel by viewModels()
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {

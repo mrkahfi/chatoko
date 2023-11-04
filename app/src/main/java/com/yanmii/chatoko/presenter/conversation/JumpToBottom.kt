@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.features.conversation
+package com.yanmii.chatoko.presenter.conversation
 
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.updateTransition

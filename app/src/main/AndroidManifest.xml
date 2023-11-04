@@ -24,19 +24,21 @@
             android:value="${API_KEY}" />
 
         <activity
-            android:name=".features.merchants.maps.MapsActivity"
+            android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".presenter.conversation.ConversationActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".NavActivity"
-            android:windowSoftInputMode="adjustResize"
-            android:exported="true">
         </activity>
     </application>
 

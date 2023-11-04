@@ -1,11 +1,11 @@
-package com.yanmii.chatoko.features.merchants.maps
+package com.yanmii.chatoko.presenter.merchants.maps
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yanmii.chatoko.domain.GetLocationUseCase
 import com.google.android.gms.maps.model.LatLng
+import com.yanmii.chatoko.domain.GetLocationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

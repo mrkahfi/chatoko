@@ -1,20 +1,15 @@
 package com.yanmii.chatoko.data
 
 import com.yanmii.chatoko.R
-import com.yanmii.chatoko.features.conversation.ConversationUiState
-import com.yanmii.chatoko.features.conversation.Message
-import com.yanmii.chatoko.data.EMOJIS.EMOJI_CLOUDS
-import com.yanmii.chatoko.data.EMOJIS.EMOJI_FLAMINGO
-import com.yanmii.chatoko.data.EMOJIS.EMOJI_MELTING
-import com.yanmii.chatoko.data.EMOJIS.EMOJI_PINK_HEART
-import com.yanmii.chatoko.data.EMOJIS.EMOJI_POINTS
 import com.yanmii.chatoko.data.EMOJIS.EMOJI_WORSHIP
-import com.yanmii.chatoko.features.profile.ProfileScreenState
+import com.yanmii.chatoko.presenter.conversation.ConversationUiState
+import com.yanmii.chatoko.presenter.conversation.Message
+import com.yanmii.chatoko.presenter.profile.ProfileScreenState
 
 private val initialMessages = listOf(
     Message(
         "Winda Humayra",
-        "Baik kak, $EMOJI_WORSHIP ditunggu kunjungannya, suwun!",
+        "Baik kak, $EMOJI_WORSHIP ditunggu kunjungannya, terima kasih!",
         "8:06 PM",
         R.drawable.sticker
     ),
@@ -40,7 +35,7 @@ private val initialMessages = listOf(
     ),
     Message(
         "me",
-        "Nuwun sewu, batik lengan panjang warna cokat tua ada? Yang motif agak modern",
+        "Permisi, batik lengan panjang warna cokat tua ada? Yang motif agak modern",
         "8:03 PM"
     )
 )

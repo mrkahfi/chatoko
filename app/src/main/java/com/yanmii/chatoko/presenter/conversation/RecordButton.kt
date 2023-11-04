@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yanmii.chatoko.features.conversation
+package com.yanmii.chatoko.presenter.conversation
 
 import androidx.compose.animation.animateColor
 import androidx.compose.animation.core.Spring

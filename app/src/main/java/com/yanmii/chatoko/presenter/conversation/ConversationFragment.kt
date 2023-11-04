@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.features.conversation
+package com.yanmii.chatoko.presenter.conversation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,14 +11,13 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.yanmii.chatoko.MainViewModel
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.data.exampleUiState
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 class ConversationFragment : Fragment() {
 
-    private val activityViewModel: MainViewModel by activityViewModels()
+    private val activityViewModel: DrawerViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

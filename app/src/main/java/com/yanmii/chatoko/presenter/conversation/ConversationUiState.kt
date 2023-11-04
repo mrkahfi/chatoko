@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.features.conversation
+package com.yanmii.chatoko.presenter.conversation
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.toMutableStateList

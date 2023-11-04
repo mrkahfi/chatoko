@@ -1,4 +1,4 @@
-package com.yanmii.chatoko.features.merchants.maps
+package com.yanmii.chatoko
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -13,54 +13,39 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.yanmii.chatoko.extension.hasLocationPermission
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.compose.CameraPositionState
-import com.google.maps.android.compose.GoogleMap
-import com.google.maps.android.compose.MapProperties
-import com.google.maps.android.compose.MapType
-import com.google.maps.android.compose.Marker
-import com.google.maps.android.compose.MarkerState
-import com.google.maps.android.compose.rememberCameraPositionState
+import com.yanmii.chatoko.extension.hasLocationPermission
+import com.yanmii.chatoko.presenter.merchants.MerchantsScreen
+import com.yanmii.chatoko.presenter.merchants.maps.RationaleAlert
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MapsActivity : ComponentActivity() {
+class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.S)
     @SuppressLint("MissingPermission")
     @OptIn(ExperimentalPermissionsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val locationViewModel: MapsActivityViewModel by viewModels()
+        val locationViewModel: MainViewModel by viewModels()
 
         setContent {
 
@@ -144,22 +129,15 @@ class MapsActivity : ComponentActivity() {
                                         this.location?.latitude ?: 0.0,
                                         this.location?.longitude ?: 0.0
                                     )
-                                val cameraState = rememberCameraPositionState()
 
-                                LaunchedEffect(key1 = currentLoc) {
-                                    cameraState.centerOnLocation(currentLoc)
-                                }
 
-                                MainScreen(
+                                MerchantsScreen(
                                     currentPosition = LatLng(
                                         currentLoc.latitude,
                                         currentLoc.longitude
-                                    ),
-                                    cameraState = cameraState
+                                    )
                                 )
                             }
-
-                            else -> {}
                         }
                     }
                 }
@@ -168,66 +146,3 @@ class MapsActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun MainScreen(currentPosition: LatLng, cameraState: CameraPositionState) {
-    val marker = LatLng(currentPosition.latitude, currentPosition.longitude)
-    GoogleMap(
-        modifier = Modifier.fillMaxSize(),
-        cameraPositionState = cameraState,
-        properties = MapProperties(
-            isMyLocationEnabled = true,
-            mapType = MapType.HYBRID,
-            isTrafficEnabled = true
-        )
-    ) {
-        Marker(
-            state = MarkerState(position = marker),
-            title = "MyPosition",
-            snippet = "This is a description of this Marker",
-            draggable = true
-        )
-    }
-}
-
-@Composable
-fun RationaleAlert(onDismiss: () -> Unit, onConfirm: () -> Unit) {
-
-    Dialog(
-        onDismissRequest = onDismiss,
-        properties = DialogProperties()
-    ) {
-        Surface(
-            modifier = Modifier
-                .wrapContentWidth()
-                .wrapContentHeight(),
-            shape = MaterialTheme.shapes.large,
-            tonalElevation = AlertDialogDefaults.TonalElevation
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = "We need location permissions to use this app",
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-                TextButton(
-                    onClick = {
-                        onConfirm()
-                        onDismiss()
-                    },
-                    modifier = Modifier.align(Alignment.End)
-                ) {
-                    Text("OK")
-                }
-            }
-        }
-    }
-}
-
-private suspend fun CameraPositionState.centerOnLocation(
-    location: LatLng
-) = animate(
-    update = CameraUpdateFactory.newLatLngZoom(
-        location,
-        15f
-    ),
-    durationMs = 1500
-)

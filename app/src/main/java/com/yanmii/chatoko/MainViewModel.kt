@@ -1,22 +1,50 @@
 package com.yanmii.chatoko
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.google.android.gms.maps.model.LatLng
+import com.yanmii.chatoko.domain.GetLocationUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-/**
- * Used to communicate between screens.
- */
-class MainViewModel : ViewModel() {
+@RequiresApi(Build.VERSION_CODES.S)
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val getLocationUseCase: GetLocationUseCase
+) : ViewModel() {
 
-    private val _drawerShouldBeOpened = MutableStateFlow(false)
-    val drawerShouldBeOpened = _drawerShouldBeOpened.asStateFlow()
+    private val _viewState: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
+    val viewState = _viewState.asStateFlow()
 
-    fun openDrawer() {
-        _drawerShouldBeOpened.value = true
+    fun handle(event: PermissionEvent) {
+        when (event) {
+            PermissionEvent.Granted -> {
+                viewModelScope.launch {
+                    getLocationUseCase.invoke().collect {
+                        _viewState.value = ViewState.Success(it)
+                    }
+                }
+            }
+
+            PermissionEvent.Revoked -> {
+                _viewState.value = ViewState.RevokedPermissions
+            }
+        }
     }
+}
 
-    fun resetOpenDrawerAction() {
-        _drawerShouldBeOpened.value = false
-    }
+sealed interface ViewState {
+    object Loading : ViewState
+    data class Success(val location: LatLng?) : ViewState
+    object RevokedPermissions : ViewState
+}
+
+sealed interface PermissionEvent {
+    object Granted : PermissionEvent
+    object Revoked : PermissionEvent
 }
