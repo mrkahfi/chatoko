@@ -1,9 +1,8 @@
 package com.yanmii.chatoko.presenter.merchants
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
@@ -51,7 +50,8 @@ fun MerchantsScreen(
             viewModel.updateCurrentShow(showType = showType)
             viewModel.resetHomeScreenStates()
         },
-        navigationItemContentList = navigationItemContentList
+        navigationItemContentList = navigationItemContentList,
+        modifier = modifier
     )
 }
 
@@ -75,24 +75,25 @@ private fun MerchantsContent(
         )
     }
 
-    Box(modifier = modifier) {
-        Row(modifier = Modifier.fillMaxSize()) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.inverseOnSurface)
-            ) {
-                MapsScreen(currentPosition = currentPosition, cameraState = cameraState)
-                BottomNavBar(
-                    currentTab = replyUiState.currentShowType,
-                    onTabPressed = onTabPressed,
-                    navigationItemContentList = navigationItemContentList,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                )
-
-            }
-        }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.inverseOnSurface),
+        verticalArrangement = Arrangement.Bottom,
+    ) {
+        MapsScreen(
+            currentPosition = currentPosition,
+            cameraState = cameraState,
+            modifier = modifier
+                .weight(1f),
+        )
+        BottomNavBar(
+            currentTab = replyUiState.currentShowType,
+            onTabPressed = onTabPressed,
+            navigationItemContentList = navigationItemContentList,
+            modifier = Modifier
+                .fillMaxWidth()
+        )
     }
 }
 

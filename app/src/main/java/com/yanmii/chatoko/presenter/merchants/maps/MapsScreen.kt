@@ -1,8 +1,9 @@
 package com.yanmii.chatoko.presenter.merchants.maps
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -27,23 +28,26 @@ import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
 
 @Composable
-fun MapsScreen(currentPosition: LatLng, cameraState: CameraPositionState) {
+fun MapsScreen(currentPosition: LatLng, cameraState: CameraPositionState, modifier: Modifier) {
     val marker = LatLng(currentPosition.latitude, currentPosition.longitude)
-    GoogleMap(
-        modifier = Modifier.fillMaxWidth(),
-        cameraPositionState = cameraState,
-        properties = MapProperties(
-            isMyLocationEnabled = true,
-            mapType = MapType.NORMAL,
-            isTrafficEnabled = true
-        )
-    ) {
-        Marker(
-            state = MarkerState(position = marker),
-            title = "MyPosition",
-            snippet = "This is a description of this Marker",
-            draggable = true
-        )
+    Box(
+        modifier = modifier
+            .fillMaxHeight()) {
+        GoogleMap(
+            cameraPositionState = cameraState,
+            properties = MapProperties(
+                isMyLocationEnabled = true,
+                mapType = MapType.NORMAL,
+                isTrafficEnabled = true,
+            ),
+        ) {
+            Marker(
+                state = MarkerState(position = marker),
+                title = "MyPosition",
+                snippet = "This is a description of this Marker",
+                draggable = true
+            )
+        }
     }
 }
 

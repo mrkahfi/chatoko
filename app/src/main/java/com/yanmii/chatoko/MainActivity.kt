@@ -135,7 +135,7 @@ class MainActivity : ComponentActivity() {
                                     currentPosition = LatLng(
                                         currentLoc.latitude,
                                         currentLoc.longitude
-                                    )
+                                    ),
                                 )
                             }
                         }
