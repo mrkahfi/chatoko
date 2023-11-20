@@ -1,7 +1,7 @@
-package com.yanmii.chatoko.data
+package com.yanmii.chatoko.data.fake
 
 import com.yanmii.chatoko.R
-import com.yanmii.chatoko.data.EMOJIS.EMOJI_WORSHIP
+import com.yanmii.chatoko.data.fake.EMOJIS.EMOJI_WORSHIP
 import com.yanmii.chatoko.presenter.conversation.ConversationUiState
 import com.yanmii.chatoko.presenter.conversation.Message
 import com.yanmii.chatoko.presenter.profile.ProfileScreenState

@@ -5,6 +5,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -71,15 +72,15 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("androidx.activity:activity-compose:1.8.1")
 
     implementation("androidx.core:core-ktx:1.13.0-alpha01")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.compose.runtime:runtime-livedata")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation("com.google.android.material:material:1.10.0")
 
     implementation("androidx.compose.foundation:foundation-layout:1.5.4")
@@ -105,6 +106,17 @@ dependencies {
     //Google Services & Maps
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
+
+    // Image loading
+    implementation("com.github.bumptech.glide:glide:5.0.0-rc01")
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-firestore")
 
     //Accompanist (Permission)
     implementation("com.google.accompanist:accompanist-permissions:0.31.3-beta")

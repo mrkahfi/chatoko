@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.yanmii.chatoko.R
-import com.yanmii.chatoko.data.exampleUiState
+import com.yanmii.chatoko.data.fake.exampleUiState
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 class ConversationFragment : Fragment() {

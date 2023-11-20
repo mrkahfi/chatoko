@@ -52,8 +52,6 @@ import com.yanmii.chatoko.FunctionalityNotAvailablePopup
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.components.AnimatingFabContent
 import com.yanmii.chatoko.components.baselineHeight
-import com.yanmii.chatoko.data.colleagueProfile
-import com.yanmii.chatoko.data.meProfile
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
@@ -258,29 +256,6 @@ fun ProfileFab(
     }
 }
 
-@Preview(widthDp = 640, heightDp = 360)
-@Composable
-fun ConvPreviewLandscapeMeDefault() {
-    ChatokoTheme {
-        ProfileScreen(meProfile)
-    }
-}
-
-@Preview(widthDp = 360, heightDp = 480)
-@Composable
-fun ConvPreviewPortraitMeDefault() {
-    ChatokoTheme {
-        ProfileScreen(meProfile)
-    }
-}
-
-@Preview(widthDp = 360, heightDp = 480)
-@Composable
-fun ConvPreviewPortraitOtherDefault() {
-    ChatokoTheme {
-        ProfileScreen(colleagueProfile)
-    }
-}
 
 @Preview
 @Composable

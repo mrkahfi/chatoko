@@ -70,7 +70,7 @@ import androidx.compose.ui.unit.dp
 import com.yanmii.chatoko.FunctionalityNotAvailablePopup
 import com.yanmii.chatoko.R
 import com.yanmii.chatoko.components.ChatokoAppBar
-import com.yanmii.chatoko.data.exampleUiState
+import com.yanmii.chatoko.data.fake.exampleUiState
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
 import kotlinx.coroutines.launch
 

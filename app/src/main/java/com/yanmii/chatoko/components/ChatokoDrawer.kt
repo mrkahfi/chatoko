@@ -28,7 +28,6 @@ import androidx.compose.ui.Alignment.Companion.CenterStart
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,8 +35,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.yanmii.chatoko.R
-import com.yanmii.chatoko.data.colleagueProfile
-import com.yanmii.chatoko.data.meProfile
+import com.yanmii.chatoko.data.fake.colleagueProfile
+import com.yanmii.chatoko.data.fake.meProfile
 import com.yanmii.chatoko.ui.theme.ChatokoTheme
 
 @Composable

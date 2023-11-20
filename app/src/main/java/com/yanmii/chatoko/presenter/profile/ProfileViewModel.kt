@@ -5,8 +5,8 @@ import androidx.compose.runtime.Immutable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.yanmii.chatoko.data.colleagueProfile
-import com.yanmii.chatoko.data.meProfile
+import com.yanmii.chatoko.data.fake.colleagueProfile
+import com.yanmii.chatoko.data.fake.meProfile
 
 class ProfileViewModel : ViewModel() {
 

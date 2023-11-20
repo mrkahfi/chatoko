@@ -21,6 +21,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.rememberCameraPositionState
+import com.yanmii.chatoko.presenter.merchants.list.ListScreen
 import com.yanmii.chatoko.presenter.merchants.maps.MapsScreen
 
 @Composable
@@ -45,7 +46,7 @@ fun MerchantsScreen(
 
     MerchantsContent(
         currentPosition = currentPosition,
-        replyUiState = merchantsUiState,
+        merchantsViewState = merchantsUiState,
         onTabPressed = { showType: ShowType ->
             viewModel.updateCurrentShow(showType = showType)
             viewModel.resetHomeScreenStates()
@@ -58,7 +59,7 @@ fun MerchantsScreen(
 @Composable
 private fun MerchantsContent(
     currentPosition: LatLng,
-    replyUiState: MerchantsUiState,
+    merchantsViewState: MerchantsUiState,
     onTabPressed: ((ShowType) -> Unit),
     navigationItemContentList: List<NavigationItemContent>,
     modifier: Modifier = Modifier,
@@ -81,14 +82,19 @@ private fun MerchantsContent(
             .background(MaterialTheme.colorScheme.inverseOnSurface),
         verticalArrangement = Arrangement.Bottom,
     ) {
-        MapsScreen(
-            currentPosition = currentPosition,
-            cameraState = cameraState,
-            modifier = modifier
-                .weight(1f),
-        )
+        
+        when (merchantsViewState.currentShowType) {
+            ShowType.Maps -> MapsScreen(
+                currentPosition = currentPosition,
+                cameraState = cameraState,
+                modifier = modifier
+                    .weight(1f),
+            )
+            ShowType.List -> ListScreen(modifier = modifier)
+        }
+        
         BottomNavBar(
-            currentTab = replyUiState.currentShowType,
+            currentTab = merchantsViewState.currentShowType,
             onTabPressed = onTabPressed,
             navigationItemContentList = navigationItemContentList,
             modifier = Modifier
